@@ -45,3 +45,5 @@ Latest timing adjustment: the final phrase stage is extended by 40% (1.08s to 1.
 Opening entry update: the dragon now plays on every fresh load, including #origin and other chapter URLs. Hash navigation within the loaded site does not restart it. Skip, replay, reduced-motion bypass and 9.432-second timing remain. This supersedes earlier deep-link-bypass notes.
 
 Latest timing: the final phrase stage is 50% longer than its previous 1.512 seconds, now 2.268 seconds. Earlier beats are unchanged; total opening is 10.188 seconds. The timing assertion checks the 1.5 ratio against the prior duration.
+
+Music verification (2026-10-29): production build passed; browser confirmed silent initial state, first interaction changes the control to playing, mute remains off through navigation, and explicit resume works. Intro controls fit a 320 x 740 viewport. The final user-supplied MP3 matches the source and production asset byte-for-byte (583190 bytes); deployment asset checks and production build passed after replacement.

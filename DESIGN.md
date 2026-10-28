@@ -156,3 +156,6 @@ Latest timing adjustment: the final phrase stage is extended by 40% (1.08s to 1.
 Opening entry update: the dragon now plays on every fresh load, including #origin and other chapter URLs. Hash navigation within the loaded site does not restart it. Skip, replay, reduced-motion bypass and 9.432-second timing remain. This supersedes earlier deep-link-bypass notes.
 
 Latest timing: the final phrase stage is 50% longer than its previous 1.512 seconds, now 2.268 seconds. Earlier beats are unchanged; total opening is 10.188 seconds. The timing assertion checks the 1.5 ratio against the prior duration.
+
+
+Background music: the user-supplied Naruto - Main theme (Flute cover).mp3 is served locally as /media/naruto-flute.mp3 at quiet volume and loops. Playback begins on the first click/tap or Enter/Space activation, including inside the dragon dialog. Matching music toggles appear in the intro, header and cinematic controls; mute preference persists locally. Hidden tabs pause playback, and visible tabs resume only after activation and while music is enabled. Intro timing is unchanged.

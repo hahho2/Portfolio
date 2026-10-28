@@ -6,6 +6,7 @@ const assets=[
  'assets/village.webp',
  'fonts/barlow-condensed-latin-800-normal.woff2',
  'media/shinobi-opening.mp4',
+ 'media/naruto-flute.mp3',
  'harsh-yadav-resume.pdf',
 ];
 for(const asset of assets){
