@@ -1,7 +1,8 @@
 // Deterministic target fields: scroll reversal traverses the same particles.
 export const words=['CODE','CREATE','BUILD','EVOLVE','NEVER GIVE UP','MY NINJA WAY IS TO KEEP BUILDING.'];
 export function random(seed:number){let n=seed|0;return()=>{n=(Math.imul(n,1664525)+1013904223)|0;return(n>>>0)/4294967296}}
-export function shapeTargets(count:number){
+export function shapeTargets(count:number,aspect=1.75){
+ const portrait=aspect<1;
  const canvas=document.createElement('canvas');canvas.width=1400;canvas.height=800;
  const c=canvas.getContext('2d',{willReadFrequently:true})!;const rng=random(84);
  function sample(){const pixels=c.getImageData(0,0,1400,800).data;const points=[];for(let y=2;y<798;y+=3)for(let x=2;x<1398;x+=3){if(pixels[(y*1400+x)*4+3]>100)points.push([x,y])}const out=new Float32Array(count*3);for(let i=0;i<count;i++){const p=points[Math.floor(rng()*points.length)]||[700,400];out[i*3]=(p[0]+rng()*3)/700-1;out[i*3+1]=1-(p[1]+rng()*3)/400;out[i*3+2]=rng()}return out}
@@ -13,7 +14,10 @@ export function shapeTargets(count:number){
  c.lineWidth=6;for(const path of ['M936 238 Q925 184 951 165 Q930 203 970 223','M974 293 Q1061 214 1143 229 Q1200 251 1151 270','M1014 308 Q1148 360 1191 309','M863 245 L824 216 L828 253 L800 238 L814 278','M925 300 L906 345 L877 355 L897 363 L918 354 L912 380 L931 361 L945 332','M582 368 L620 409 L650 417 L636 431 L607 426 L616 451 L596 431 L578 413','M294 478 L265 511 L224 514 L208 531 L232 524 L249 533 L261 524 L274 541 L282 523 L311 502'])c.stroke(new Path2D(path));
  // Negative mouth opening and scale cuts preserve anatomy at particle resolution.
  c.globalCompositeOperation='destination-out';c.lineWidth=10;c.stroke(new Path2D('M1008 292 L1085 276'));c.lineWidth=3;for(let i=0;i<13;i++){const x=390+i*30,y=260+Math.sin(i*.65)*55;c.stroke(new Path2D(`M${x} ${y} q-12 18 2 31`))}c.globalCompositeOperation='source-over';c.beginPath();c.ellipse(978,260,13,7,-.2,0,7);c.fill();
- const dragon=sample();const targets=words.map((word,i)=>{c.clearRect(0,0,1400,800);c.textAlign='center';c.textBaseline='middle';c.fillStyle='white';let lines=i===5?['MY NINJA WAY','IS TO KEEP BUILDING.']:i===4?['NEVER GIVE UP']:[word];let size=i===5?108:i===4?150:245;c.font=`800 ${size}px "Barlow Condensed",sans-serif`;lines.forEach((line,j)=>c.fillText(line,700,400+(j-(lines.length-1)/2)*135,1260));return sample()});
+ const dragon=sample();
+ // Keep the dragon's anatomy proportional; a diagonal pose fills a phone naturally.
+ if(portrait){for(let i=0;i<count;i++){const x=dragon[i*3]*1.75,y=dragon[i*3+1];dragon[i*3]=(x*Math.cos(.65)-y*Math.sin(.65))*.54;dragon[i*3+1]=(x*Math.sin(.65)+y*Math.cos(.65))*.54*aspect}}
+ const targets=words.map((word,i)=>{c.clearRect(0,0,1400,800);c.textAlign='center';c.textBaseline='middle';c.fillStyle='white';const lines=portrait?(i===5?['MY NINJA WAY','IS TO KEEP','BUILDING.']:i===4?['NEVER','GIVE UP']:[word]):i===5?['MY NINJA WAY','IS TO KEEP BUILDING.']:i===4?['NEVER GIVE UP']:[word];const size=portrait?(i===5?190:i===4?240:300):i===5?108:i===4?150:245;const spacing=portrait?size*1.14:135;c.font=`800 ${size}px "Barlow Condensed",sans-serif`;lines.forEach((line,j)=>c.fillText(line,700,400+(j-(lines.length-1)/2)*spacing,1260));const target=sample();if(portrait){for(let j=0;j<count;j++)target[j*3+1]*=aspect*1.75}return target});
  const scatter=new Float32Array(count*3);for(let i=0;i<count;i++){const a=rng()*Math.PI*2,r=.2+rng()*1.8;scatter[i*3]=Math.cos(a)*r;scatter[i*3+1]=Math.sin(a)*r;scatter[i*3+2]=rng()}
  return{dragon,targets,scatter};
 }

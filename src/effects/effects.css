@@ -9,3 +9,16 @@
 .heading-lead,.chapter-heading h2>em,.quote-word{display:inline-block}.section{overflow-x:clip}.chapter-heading h2{position:relative}.chapter-heading h2:after{content:'';position:absolute;left:0;bottom:-9px;width:68px;height:1px;background:#f97316;transform-origin:left;transform:scaleX(0)}.chapter-heading h2.reveal-settled:after,.chapter-heading:has(.reveal-settled) h2:after{animation:chakra-underline .65s ease-out forwards}.origin-quote.reveal-settled:after{content:'';position:absolute;inset:1px;border:1px solid #f9731640;pointer-events:none;animation:settle-pulse .9s ease-out forwards}.skill-row.reveal-settled .skill-symbol{animation:settle-pulse .8s ease-out}.mission-art:after{content:'';position:absolute;inset:-40%;pointer-events:none;background:linear-gradient(110deg,transparent 40%,#fff4 50%,transparent 60%);translate:-100% 0;opacity:0}.mission-art.reveal-settled:after{animation:mission-sweep 1s ease-out}.timeline article.reveal-settled .timeline-dot{animation:settle-pulse .9s ease-out}.timeline article:before{content:'';position:absolute;left:-23px;top:12px;width:16px;height:1px;background:#ac784e;transform:scaleX(0);transform-origin:left}.timeline article.reveal-settled:before{animation:chakra-underline .55s ease-out forwards}.dossier-bottom.reveal-settled .button{animation:settle-pulse 1s ease-out}@keyframes chakra-underline{to{transform:scaleX(1)}}@keyframes settle-pulse{0%,100%{box-shadow:none}40%{box-shadow:0 0 22px #f9731650}}@keyframes mission-sweep{15%{opacity:.6}to{translate:100% 0;opacity:0}}@media(prefers-reduced-motion:reduce){.heading-lead,.quote-word{transform:none!important;filter:none!important;opacity:1!important}.chapter-heading h2:after{transform:scaleX(1)}.mission-art:after{display:none}}.effects-paused .reveal-settled,.effects-paused .reveal-settled:after{animation:none!important}
 .quote-word{margin-right:.2em}
 .chapter-heading h2:before{content:'';position:absolute;left:15%;top:45%;width:100px;height:30px;border:1px solid #f97316;border-radius:50%;opacity:0;pointer-events:none;z-index:-1}.chapter-heading:has(.reveal-settled) h2:before{animation:heading-shockwave .9s ease-out forwards}@keyframes heading-shockwave{0%{transform:scale(.3);opacity:0}25%{opacity:.3}100%{transform:scale(2.6);opacity:0}}.effects-paused .chapter-heading h2:before{animation:none!important}
+
+/* Phone opening: keep controls clear of camera cutouts and browser chrome. */
+@media(max-width:650px){
+ .dragon-opening .dragon-caption{top:calc(16px + env(safe-area-inset-top));left:max(6%,env(safe-area-inset-left));right:max(6%,env(safe-area-inset-right));gap:16px;font-size:8px;letter-spacing:1.5px}
+ .dragon-opening .dragon-bottom{bottom:calc(20px + env(safe-area-inset-bottom));left:max(6%,env(safe-area-inset-left));right:max(6%,env(safe-area-inset-right));gap:20px}
+ .dragon-opening .dragon-progress{flex:1;max-width:140px;height:2px}
+ .dragon-opening button{min-height:48px;font-size:12px;white-space:nowrap}
+ .effect-controls{bottom:calc(10px + env(safe-area-inset-bottom))}
+}
+@media(max-height:480px) and (orientation:landscape){
+ .dragon-opening .dragon-caption{top:calc(4px + env(safe-area-inset-top))}
+ .dragon-opening .dragon-bottom{bottom:calc(4px + env(safe-area-inset-bottom))}
+}
