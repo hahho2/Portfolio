@@ -39,7 +39,7 @@ export default function useDirectionalReveals(stopped:boolean){
   reveal('.field-mission',(_,i)=>i%2?'from-right':'from-left',.08);reveal('.field-mission .tags','stagger-up');reveal('.field-heading','blur-reveal');
   reveal('#journey .chapter-heading h2','from-left');reveal('.employer','zoom-out');reveal('.timeline article',(_,i)=>i%2?'from-right':'from-left');reveal('.career-date','from-top');reveal('.timeline article > p','from-bottom');
   reveal('#resume .chapter-heading h2','from-top');reveal('.dossier','flip-in');reveal('.dossier-grid > div','stagger-up',.12);reveal('.dossier-bottom','from-right');
-  reveal('.finale-prelude h2','blur-reveal');reveal('.finale-prelude .button','from-bottom');reveal('.contact-heading h2','blur-reveal');reveal('.contact-links > a',(_,i)=>directions[i%4],.12);reveal('.contact-layout form','from-bottom');
+  reveal('.contact-heading h2','blur-reveal');reveal('.contact-links > a',(_,i)=>directions[i%4],.12);reveal('.contact-layout form','from-bottom');
   // Only scenic surfaces scrub; reading content uses one-time entrances.
   gsap.to('.mission-art',{yPercent:mobile?-2:-5,ease:'none',scrollTrigger:{trigger:'.mission-board',start:'top bottom',end:'bottom top',scrub:.5}});
   gsap.fromTo('.contact-scenery',{opacity:.5},{opacity:.22,ease:'none',scrollTrigger:{trigger:'#contact',start:'top 80%',end:'top top',scrub:.4}});

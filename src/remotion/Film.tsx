@@ -1,6 +1,6 @@
 import {useEffect,useState} from 'react';
-import {AbsoluteFill,interpolate,useCurrentFrame,useVideoConfig,staticFile,delayRender,continueRender} from 'remotion';
-export type SceneMode='intro'|'activation'|'chapter'|'outro';
+import {AbsoluteFill,Sequence,interpolate,useCurrentFrame,useVideoConfig,staticFile,delayRender,continueRender} from 'remotion';
+export type SceneMode='intro'|'activation'|'chapter'|'outro'|'journey';
 const clamp={extrapolateLeft:'clamp',extrapolateRight:'clamp'} as const;
 export function Film({mode='intro',title='Harsh Yadav'}:{mode?:SceneMode;title?:string}){
  const frame=useCurrentFrame();const {fps,width,height}=useVideoConfig();const t=frame/fps;const intro=mode==='intro';const [fontHandle]=useState(()=>delayRender('Loading cinematic lettering'));
@@ -19,4 +19,19 @@ export function Film({mode='intro',title='Harsh Yadav'}:{mode?:SceneMode;title?:
  <AbsoluteFill style={{justifyContent:'center',padding:width*.085,background:'linear-gradient(0deg,rgba(8,13,21,.6),transparent 60%)'}}><div style={{opacity:name,translate:`0 ${interpolate(name,[0,1],[30,0])}px`,maxWidth:width*.75}}><div style={{fontFamily:'sans-serif',color:'#eda161',fontSize:width*.011,letterSpacing:5,marginBottom:25,opacity:intro?interpolate(t,[5.5,6.5],[0,1],clamp):1}}>MY CODE. MY JOURNEY. MY NINJA WAY.</div><h2 style={{fontSize:width*.105,lineHeight:.88,margin:0,textTransform:'uppercase',clipPath:`inset(0 ${(1-name)*100}% 0 0)`,textShadow:'0 5px 35px #0006'}}>{intro?<>HARSH<br/><span style={{color:'#f97316'}}>YADAV</span></>:title}</h2><p style={{fontSize:width*.018,letterSpacing:6,marginTop:28,opacity:intro?interpolate(t,[9,10.5],[0,1],clamp):1}}>THE SHINOBI DEVELOPER</p><p style={{fontFamily:'sans-serif',fontSize:width*.013,color:'#c4ceda',letterSpacing:1,marginTop:30,opacity:intro?interpolate(t,[11,12.5],[0,1],clamp):1}}>Every great story begins with a single spark.</p></div></AbsoluteFill>
  <div style={{position:'absolute',height:height*.045,background:'#060b13',top:0,width:'100%'}}/><div style={{position:'absolute',height:height*.045,background:'#060b13',bottom:0,width:'100%'}}/>
  </AbsoluteFill>
+}
+
+// Reuse the exact chapter openings on one uninterrupted playback timeline.
+export const chapterOpeningTitles=[
+ 'Every shinobi begins somewhere.',
+ 'The academy days.',
+ 'Mastering my jutsu.',
+ 'Built with purpose. Mission by mission.',
+ 'The path so far.',
+ 'The official shinobi dossier.',
+];
+const chapterFrames=60;
+export const journeyDurationInFrames=chapterOpeningTitles.length*chapterFrames;
+export function JourneyFilm(){
+ return <AbsoluteFill style={{background:'#060b13'}}>{chapterOpeningTitles.map((title,index)=><Sequence key={title} from={index*chapterFrames} durationInFrames={chapterFrames} premountFor={15}><Film mode="chapter" title={title}/></Sequence>)}</AbsoluteFill>;
 }

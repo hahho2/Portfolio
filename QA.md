@@ -47,3 +47,11 @@ Opening entry update: the dragon now plays on every fresh load, including #origi
 Latest timing: the final phrase stage is 50% longer than its previous 1.512 seconds, now 2.268 seconds. Earlier beats are unchanged; total opening is 10.188 seconds. The timing assertion checks the 1.5 ratio against the prior duration.
 
 Music verification (2026-10-29): production build passed; browser confirmed silent initial state, first interaction changes the control to playing, mute remains off through navigation, and explicit resume works. Intro controls fit a 320 x 740 viewport. The final user-supplied MP3 matches the source and production asset byte-for-byte (583190 bytes); deployment asset checks and production build passed after replacement.
+
+Continuous navigation line (2026-10-29): production build passed; browser checks confirmed progress advances to 1 at Contact and reverses to approximately 0.307 at Academy. At 390 x 844 the menu opens with the desktop rail hidden and no horizontal overflow. Screenshot: .impeccable/review/navigation/continuous-line.png.
+
+Journey film (2026-10-29): production build passed. Browser playback sampled all six chapter titles in order within one modal, then confirmed automatic closure, #origin, restored body scrolling and focus on the Origin heading. Skip also landed at Origin; individual Origin replay still closed after its two-second clip. Screenshot: .impeccable/review/journey-film/continuous-film.png.
+
+Compact layout (2026-10-29): browser verified four public project cards, no removed banner, working Trading Platform dossier, desktop 2x2 grid and merged Origin/Academy viewport fit at 1536x864 and 1366x768. At 1366x768 Origin content ends at y730 and project grid at y722. Phone checks at 390x844 and 320x740 found no document horizontal overflow; project cards stack, the menu closes after selection, and enlarged intro controls remain available. Example body text 11px to 19.8px and skill labels 13px to 23.4px confirm the 80% increase. Screenshots: .impeccable/review/compact-layout/.
+
+Resume disclosure: browser verified initial hidden/aria-expanded=false, click to reveal with the existing PDF link, click to hide, and Enter to reveal again. At 390x844 the toggle spans the content width with no horizontal document overflow. Production build passed. Screenshot: .impeccable/review/resume-toggle/expanded.png.

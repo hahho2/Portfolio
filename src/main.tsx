@@ -10,4 +10,5 @@ import '@fontsource/manrope/latin-700.css';
 import './style.css';
 import './missions.css';
 import './effects/effects.css';
+import './layout.css';
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);

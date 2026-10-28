@@ -159,3 +159,11 @@ Latest timing: the final phrase stage is 50% longer than its previous 1.512 seco
 
 
 Background music: the user-supplied Naruto - Main theme (Flute cover).mp3 is served locally as /media/naruto-flute.mp3 at quiet volume and loops. Playback begins on the first click/tap or Enter/Space activation, including inside the dragon dialog. Matching music toggles appear in the intro, header and cinematic controls; mute preference persists locally. Hidden tabs pause playback, and visible tabs resume only after activation and while music is enabled. Intro timing is unchanged.
+
+Navigation progress: a single continuous orange fill across a muted desktop navigation rail replaces the chapter diamond. Scroll position interpolates between section starts and link positions, in both directions. The phone menu retains an active-row accent without drawing a horizontal rail across its two-column layout.
+
+Begin my journey now plays a single 360-frame / 12-second Remotion timeline of all six existing two-second chapter openings, from Origin through Resume. On completion, Skip or Escape it lands at #origin and focuses the section heading. Individual chapter replay buttons remain independent. Reduced-motion visitors go directly to Origin. The initial automatic dragon opening is unchanged.
+
+Compact layout update: removed the contact prelude banner, Face Recognition Attendance and Cloud Meta Storage. Four remaining public projects use a two-column/two-row desktop grid; HRMS remains the separate workplace case study. Origin and Academy share one section and desktop viewport, with an education card retaining #academy for old links and a replay control. The main navigation now has one Origin & academy entry. Authored small CSS type (14px and below) was increased by 80%, with responsive spacing and menu collapse adjusted. Phones stack the merged chapter and project cards for reading.
+
+Resume disclosure: Show resume appears beside the dossier heading on desktop and below it on phones. The dossier starts hidden; the same button toggles Hide resume, with aria-expanded and aria-controls. The existing PDF download remains inside the expanded dossier. ScrollTrigger refreshes after expansion/collapse.
