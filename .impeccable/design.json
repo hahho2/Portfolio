@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T18:39:04.6648553Z",
+  "title": "Design System: The Shinobi Developer",
+  "extensions": {
+    "colorMeta": {
+      "orange": {
+        "role": "primary",
+        "displayName": "Chakra Orange"
+      },
+      "night": {
+        "role": "neutral",
+        "displayName": "Village Night"
+      },
+      "parchment": {
+        "role": "neutral",
+        "displayName": "Dossier Parchment"
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Data Blue"
+      },
+      "leaf": {
+        "role": "secondary",
+        "displayName": "Leaf Green"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Condensed Name",
+        "purpose": "Hero identity; scales to 117px and 105px at the two responsive breakpoints."
+      },
+      "headline": {
+        "displayName": "Chapter Heading",
+        "purpose": "Story chapter titles."
+      },
+      "body": {
+        "displayName": "Professional Detail",
+        "purpose": "Readable descriptions, contribution details, and form content."
+      }
+    },
+    "shadows": [
+      {
+        "name": "primary-action",
+        "value": "0 8px 25px #0003",
+        "purpose": "Primary action depth."
+      },
+      {
+        "name": "academy-scroll",
+        "value": "9px 12px 28px #0004",
+        "purpose": "Tilted academy parchment."
+      },
+      {
+        "name": "dossier",
+        "value": "0 15px 40px #0002",
+        "purpose": "Resume parchment."
+      },
+      {
+        "name": "dialog",
+        "value": "0 25px 100px #0009",
+        "purpose": "Mission modal elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": "background .2s, transform .2s",
+        "purpose": "Standard button feedback; disabled under reduced motion."
+      },
+      {
+        "name": "button-hover-lift",
+        "value": "translateY(-2px)",
+        "purpose": "Pointer hover on standard buttons."
+      },
+      {
+        "name": "landscape-parallax",
+        "value": "yPercent: 12",
+        "purpose": "GSAP hero parallax across section scroll; bypassed for reduced motion."
+      },
+      {
+        "name": "ember-loop",
+        "value": "9s linear infinite",
+        "purpose": "Ambient ember base duration, varied 7–10 seconds per particle; hidden for reduced motion."
+      },
+      {
+        "name": "dragon-scroll-stage",
+        "value": "340vh / 100svh sticky",
+        "purpose": "One reversible desktop interlude with direct Origin skip links; mobile static stage has no pin."
+      },
+      {
+        "name": "particle-budget",
+        "value": "12500 desktop / 3500 below 650px; DPR <= 1.15",
+        "purpose": "Shared lazy Three.js canvas budget; particle morph is hidden at widths <=650px, which show a static poster and DOM text. Budgets are not measured frame-rate claims."
+      },
+      {
+        "name": "word-stops",
+        "value": "0.36, 0.46, 0.56, 0.66, 0.76, 0.88, 1",
+        "purpose": "Seeded target fields for CODE, CREATE, BUILD, EVOLVE, NEVER GIVE UP, and MY NINJA WAY IS TO KEEP BUILDING.; morph completes in the first 48% of each interval."
+      },
+      {
+        "name": "chapter-heading-reveal",
+        "value": "0.7s power3.out; y:16 to 0",
+        "purpose": "Once-on-entry chapter reveal; added timeline bypassed when effects stop."
+      },
+      {
+        "name": "paper-unroll",
+        "value": "0.8s power3.out",
+        "purpose": "Origin quotation, academy scroll, and resume dossier clip-mask reveal."
+      },
+      {
+        "name": "record-entry",
+        "value": "0.6s power3.out; y:15 to 0",
+        "purpose": "Mission and timeline entry; timeline checkpoint class is cleared after 800ms."
+      },
+      {
+        "name": "cloud-drift",
+        "value": "38s ease-in-out infinite alternate",
+        "purpose": "CSS upper atmosphere; ambient pause freezes it."
+      },
+      {
+        "name": "fog-drift",
+        "value": "24s ease-in-out infinite alternate",
+        "purpose": "CSS village mist; ambient pause freezes it."
+      },
+      {
+        "name": "aura-pulse",
+        "value": "14s ease-in-out infinite",
+        "purpose": "Low-opacity halo behind HTML name; reduced motion removes animation."
+      },
+      {
+        "name": "opening-film",
+        "value": "450 frames / 30fps / 15s",
+        "purpose": "Rendered /media/shinobi-opening.mp4 is 2718643 bytes; muted video with poster, explicit Play fallback, and Remotion fallback on media error."
+      },
+      {
+        "name": "optional-pointer-ember",
+        "value": "0.65s ease-out; 65ms event throttle",
+        "purpose": "Off by default; fine-pointer only; suppressed over forms and open cinematics, disabled while ambient effects stop."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "navigation-collapse",
+        "value": "960px"
+      },
+      {
+        "name": "single-column",
+        "value": "600px"
+      },
+      {
+        "name": "static-dragon-and-hidden-pointer-toggle",
+        "value": "650px"
+      }
+    ],
+    "openingBehavior": {
+      "durationSeconds": 10.188,
+      "trigger": "every fresh page load and explicit replay",
+      "advance": "elapsed time; no scrolling",
+      "homepageVisibleDuringOpening": false,
+      "inPageDragonSection": false,
+      "skip": true,
+      "reducedMotionBypass": true,
+      "deepLinkBypass": false,
+      "finalPhraseStageSeconds": 2.268,
+      "finalPhraseStageExtensionPercent": 110,
+      "latestFinalPhraseIncreasePercent": 50
+    },
+    "directionalReveals": {
+      "owner": "src/effects/useDirectionalReveals.ts",
+      "durationSeconds": 0.9,
+      "ease": "power3.out",
+      "trigger": "top 90%",
+      "pattern": "deterministic",
+      "mobileTravelReduced": true,
+      "reducedMotionBypass": true,
+      "preservesLayoutAndContent": true
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Orange mission action.",
+      "html": "<button class=\"ds-button ds-primary\">Begin my journey <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:15px;min-height:48px;padding:0 22px;border:1px solid #ffffff38;border-radius:3px;font:700 11px Manrope,sans-serif;cursor:pointer;transition:background .2s,transform .2s}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:2px solid #38bdf8;outline-offset:6px}.ds-button:disabled{cursor:not-allowed;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-primary{background:var(--orange,#f97316);border-color:var(--orange,#f97316);color:#151b23;box-shadow:0 8px 25px #0003}.ds-primary:hover{background:#ff9344}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "description": "Quiet bordered dialog or cinematic control.",
+      "html": "<button class=\"ds-button ds-secondary\">Close dossier</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:15px;min-height:48px;padding:0 22px;border:1px solid #ffffff38;border-radius:3px;font:700 11px Manrope,sans-serif;cursor:pointer;transition:background .2s,transform .2s}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:2px solid #38bdf8;outline-offset:6px}.ds-button:disabled{cursor:not-allowed;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-secondary{background:transparent;color:#f8f5ef}.ds-secondary:hover{background:#ffffff15}"
+    },
+    {
+      "name": "Dossier Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Dark action on a parchment document.",
+      "html": "<button class=\"ds-button ds-dark\">Download resume</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:15px;min-height:48px;padding:0 22px;border:1px solid #ffffff38;border-radius:3px;font:700 11px Manrope,sans-serif;cursor:pointer;transition:background .2s,transform .2s}.ds-button:hover{transform:translateY(-2px)}.ds-button:focus-visible{outline:2px solid #38bdf8;outline-offset:6px}.ds-button:disabled{cursor:not-allowed;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}}.ds-dark{background:#25302b;color:#ead8b5;border:0}.ds-dark:hover{background:#ffffff15}"
+    },
+    {
+      "name": "Contact Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labeled email field with visible keyboard focus.",
+      "html": "<label class=\"ds-label\">Your email<input class=\"ds-input\" type=\"email\" placeholder=\"you@example.com\" autocomplete=\"email\"></label>",
+      "css": ".ds-label{display:block;color:#c5cdd7;font:400 10px Manrope,sans-serif}.ds-input{display:block;margin:12px 0 24px;background:#0d1520a0;border:1px solid #ffffff26;border-radius:2px;color:#fff;width:100%;padding:14px;font:400 11px Manrope,sans-serif;caret-color:#f97316}.ds-input:focus-visible{outline:2px solid #f97316;outline-offset:3px}"
+    },
+    {
+      "name": "Technology Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Noninteractive project technology metadata.",
+      "html": "<span class=\"ds-tag\">ASP.NET Core</span>",
+      "css": ".ds-tag{display:inline-block;font:400 8px Manrope,sans-serif;padding:7px 10px;background:#ffffff06;border:1px solid #ffffff1a;color:#b9c4d2}"
+    },
+    {
+      "name": "Chapter Navigation",
+      "kind": "nav",
+      "description": "Quiet anchors with a small orange kunai-like active marker.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Chapter navigation\"><a class=\"ds-current\" href=\"#origin\" aria-current=\"location\">Origin</a><a href=\"#missions\">Missions</a></nav>",
+      "css": ".ds-nav{display:flex;gap:24px;align-items:center}.ds-nav a{font:400 11px Manrope,sans-serif;color:#bec3cc;position:relative;padding:17px 0;text-decoration:none}.ds-nav a:hover,.ds-nav .ds-current{color:#fff}.ds-nav .ds-current:after{content:'';position:absolute;width:12px;height:3px;border-radius:0;clip-path:polygon(0 50%,65% 0,100% 50%,65% 100%);background:#f97316;bottom:3px;left:calc(50% - 6px)}.ds-nav a:focus-visible{outline:2px solid #38bdf8;outline-offset:6px}"
+    },
+    {
+      "name": "Parchment Dossier",
+      "kind": "card",
+      "description": "Professional registration document with an inset rule.",
+      "html": "<article class=\"ds-dossier\"><span class=\"ds-meta\">SHINOBI REGISTRATION RECORD</span><h3>HARSH YADAV</h3><p>.NET developer · Backend development</p></article>",
+      "css": ".ds-dossier{background:#ead8b5;color:#353831;padding:35px 50px;box-shadow:0 15px 40px #0002;position:relative;max-width:950px}.ds-dossier:before{content:'';position:absolute;inset:10px;border:1px solid #84765a4d;pointer-events:none}.ds-meta{font:400 7px Manrope,sans-serif;letter-spacing:2px}.ds-dossier h3{font:600 46px 'Barlow Condensed',sans-serif;letter-spacing:1px;margin:30px 0 5px}.ds-dossier p{font:400 11px Manrope,sans-serif;margin:0}"
+    },
+    {
+      "name": "Ambient Effect Controls",
+      "kind": "custom",
+      "description": "Persistent ambient pause preference and optional pointer embers; separate from wind and cinematic playback.",
+      "html": "<div class=\"ds-effects\" aria-label=\"Animation preferences\"><button aria-pressed=\"false\">Pause effects</button><button aria-pressed=\"false\">Embers off</button></div>",
+      "css": ".ds-effects{display:inline-flex;gap:8px;background:#101725ee;border:1px solid #ffffff24;border-radius:4px;box-shadow:0 6px 20px #0004}.ds-effects button{display:flex;align-items:center;gap:7px;min-height:42px;padding:0 12px;font:400 9px Manrope,sans-serif;color:#c6d0dd;border:0;background:none;cursor:pointer}.ds-effects button:hover{color:#ff9b54}.ds-effects button[aria-pressed=true]{color:#ffb782}.ds-effects button:focus-visible{outline:2px solid #38bdf8;outline-offset:6px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shinobi Developer",
+    "overview": "An original dusk village panorama establishes a cinematic, determined atmosphere. The world draws on Naruto's shinobi storytelling while keeping original artwork and professional facts at its center. A large condensed name, quiet navy surfaces, orange signals, parchment documents, and sparse decorative Japanese lettering form the established identity.\n\nThis document records the implemented portfolio and its approved chakra animation enhancement. Preserve the dusk village identity, stacked name, professional chapters, and direct chapter anchors. The earlier proposal is a planning record; current source code defines the delivered effects and fallbacks.",
+    "keyCharacteristics": [
+      "Cinematic landscape with readable dark overlays.",
+      "Condensed display type paired with restrained sans-serif details.",
+      "Mission records and parchment dossiers instead of repeated card grids.",
+      "A reversible dragon-to-type interlude, optional ambient effects, and opt-in synthesized wind."
+    ],
+    "rules": [],
+    "dos": [
+      "Do preserve original dusk village artwork and its readable text overlays.",
+      "Do keep professional facts, chapter anchors, and mission sources readily accessible.",
+      "Do retain visible focus, reduced-motion handling, and explicit unavailable states."
+    ],
+    "donts": [
+      "Don't redistribute anime footage, recognizable character art, or licensed soundtracks.",
+      "Don't invent dates, outcomes, proficiency ratings, project screenshots, or deployment claims.",
+      "Don't replace the alternating narrative compositions with identical card grids."
+    ]
+  }
+}

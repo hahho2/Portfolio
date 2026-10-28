@@ -1,0 +1,12 @@
+node_modules
+dist
+.npm-cache
+.impeccable
+backups
+proposal
+Images
+.env
+.env.local
+.env.*.local
+*.log
+*.tsbuildinfo
