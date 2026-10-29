@@ -80,3 +80,71 @@
 .dossier[hidden]{display:none}
 @media(max-width:700px){.resume-heading{align-items:flex-start;flex-direction:column;gap:20px}.resume-toggle{width:100%;justify-content:space-between}}
 
+
+/* Experience and learning alternate around one continuous center line. */
+.journey-intro{font-size:21.6px;color:#b6c1d1;line-height:1.6;max-width:660px;margin-bottom:45px}
+.journey-alternating .timeline{padding:0}
+.journey-alternating .timeline:before,.journey-alternating .journey-path{left:50%;top:12px;bottom:40px}
+.journey-step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:96px;align-items:center;padding-bottom:64px;position:relative}
+.journey-step article{grid-column:1;grid-row:1;padding:0}
+.journey-step .journey-note{grid-column:2;grid-row:1}
+.journey-step.entry-right article{grid-column:2}
+.journey-step.entry-right .journey-note{grid-column:1}
+.journey-step .timeline-dot{left:auto;right:-60px;top:0}
+.journey-step.entry-right .timeline-dot{left:-60px;right:auto}
+.journey-step article:before{display:none}
+.journey-step .career-date{font-size:14.4px;line-height:1.6;margin-bottom:14px}
+.journey-step h4{font-size:32px;line-height:1.1;margin-bottom:14px}
+.journey-step h5{font-size:19.8px;line-height:1.5;margin-bottom:14px;color:#d6dfeb}
+.journey-step article>p{font-size:19.8px;line-height:1.7;max-width:none}
+.journey-note{padding:28px;border:1px solid #ffffff20;background:linear-gradient(135deg,#172334,#0d1724);position:relative}
+.journey-note:after{content:'';position:absolute;top:0;left:0;width:55px;height:2px;background:#f97316}
+.journey-note-label{display:flex;align-items:center;gap:12px;color:#efa46e;margin-bottom:22px}
+.journey-note-label span{font-size:12.6px;letter-spacing:1.4px;line-height:1.5}
+.journey-note h4{font-family:'Barlow Condensed',sans-serif;font-size:34px;color:#f8f5ef}
+.journey-flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:20px}
+.journey-flow>span{display:flex;align-items:center;gap:10px;color:#e9b38e}
+.journey-flow b{font-weight:400;font-size:16.2px;color:#c5d0df;padding:9px 12px;background:#ffffff05;border:1px solid #ffffff18}
+.timeline .journey-metric{max-width:none;margin-top:24px;border-top:1px solid #ffffff20;padding-top:18px}
+.journey-metric strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:43px;color:#f5a26a;font-weight:600;line-height:1.1}
+.journey-metric span,.timeline .journey-note-caption{display:block;font-size:14.4px;line-height:1.65;color:#aab8ca;margin-top:10px}
+@media(max-width:850px){
+ .journey-step{gap:56px}.journey-step .timeline-dot{right:-40px}.journey-step.entry-right .timeline-dot{left:-40px}.journey-note{padding:20px}
+}
+@media(max-width:700px){
+ .journey-alternating .timeline{padding-left:34px}.journey-alternating .timeline:before,.journey-alternating .journey-path{left:10px}
+ .journey-step{grid-template-columns:minmax(0,1fr);gap:22px;padding-bottom:44px}
+ .journey-step article,.journey-step.entry-right article{grid-column:1;grid-row:1}
+ .journey-step .journey-note,.journey-step.entry-right .journey-note{grid-column:1;grid-row:2}
+ .journey-step .timeline-dot,.journey-step.entry-right .timeline-dot{left:-35px;right:auto}
+ .journey-step h4{font-size:30px}.journey-intro{font-size:19.8px}.journey-flow{gap:7px}.journey-flow>span{gap:7px}.journey-flow b{font-size:14.4px;padding:7px 9px}
+}
+
+/* Fit the complete home composition into a laptop viewport; phones keep their layout. */
+@media(min-width:1000px) and (max-height:1000px){
+ .hero{height:100svh;min-height:0;max-height:none}
+ .hero-content{padding-top:clamp(108px,15.5svh,142px);max-width:650px}
+ .hero .availability{font-size:11px;letter-spacing:1.8px;margin-bottom:16px}
+ .hero h1{font-size:clamp(84px,15.5svh,124px)}
+ .hero h1 i{font-size:19px;right:-48px;letter-spacing:7px}
+ .hero-role{font-size:17px;letter-spacing:4px;margin-top:14px}
+ .hero-tagline{font-size:20px;line-height:1.4;margin-top:16px}
+ .hero-description{font-size:16px;line-height:1.6;margin-top:10px}
+ .hero-actions{gap:24px;margin-top:18px}
+ .hero-actions .button{font-size:14px;min-height:44px;padding:0 20px;gap:12px}
+ .hero-actions .text-button{font-size:14px;min-height:44px}
+ .hero-actions .text-button>span{font-size:11px}
+ .hero-tech{font-size:11px;letter-spacing:.8px;margin-top:18px;gap:10px}
+ .hero-bottom{font-size:10px;letter-spacing:1.4px;bottom:22px}
+}
+@media(min-width:1000px) and (max-height:650px){
+ .hero-content{padding-top:104px}
+ .hero h1{font-size:clamp(72px,13svh,86px)}
+ .hero .availability{margin-bottom:12px}
+ .hero-role{margin-top:10px}
+ .hero-tagline{font-size:18px;margin-top:12px}
+ .hero-description{font-size:14px;margin-top:8px}
+ .hero-actions{margin-top:14px}
+ .hero-tech{margin-top:14px}
+ .hero-bottom{bottom:16px}
+}

@@ -37,7 +37,7 @@ export default function useDirectionalReveals(stopped:boolean){
   const observer=new MutationObserver(()=>scope.add(skills));const list=document.querySelector('.skill-list');if(list)observer.observe(list,{childList:true});
   reveal('#missions .chapter-heading h2','mask');reveal('.mission-art','from-left');reveal('.mission-copy','from-right');reveal('.mission-copy .tags > span','stagger-up',.09);reveal('.mission-copy .inline-link','zoom-in');reveal('.hrms-case-study','from-bottom');
   reveal('.field-mission',(_,i)=>i%2?'from-right':'from-left',.08);reveal('.field-mission .tags','stagger-up');reveal('.field-heading','blur-reveal');
-  reveal('#journey .chapter-heading h2','from-left');reveal('.employer','zoom-out');reveal('.timeline article',(_,i)=>i%2?'from-right':'from-left');reveal('.career-date','from-top');reveal('.timeline article > p','from-bottom');
+  reveal('#journey .chapter-heading h2','from-left');reveal('.journey-note',(_,i)=>i%2?'from-left':'from-right');reveal('.timeline article',(_,i)=>i%2?'from-right':'from-left');reveal('.career-date','from-top');reveal('.timeline article > p','from-bottom');
   reveal('#resume .chapter-heading h2','from-top');reveal('.dossier','flip-in');reveal('.dossier-grid > div','stagger-up',.12);reveal('.dossier-bottom','from-right');
   reveal('.contact-heading h2','blur-reveal');reveal('.contact-links > a',(_,i)=>directions[i%4],.12);reveal('.contact-layout form','from-bottom');
   // Only scenic surfaces scrub; reading content uses one-time entrances.
